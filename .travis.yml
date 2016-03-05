@@ -20,4 +20,4 @@ perl:
   - 5.16
 script:
   - prove -lr -j1 t
-  - jasmine spec/
+  - jasmine
