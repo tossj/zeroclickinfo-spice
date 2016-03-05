@@ -18,6 +18,9 @@ install:
 language: perl
 perl:
   - 5.16
+before_script:
+  - jasmine init
+  - jasmine examples
 script:
   - prove -lr -j1 t
   - jasmine
