@@ -63,7 +63,6 @@
             Spice.add({
                 id: 'missing_kids',
                 name: 'Missing Kids',
-                signal: "high",
                 data: articles,
                 meta: {
                     primaryText: 'Missing children in ' + decodedQuery,

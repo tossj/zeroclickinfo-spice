@@ -8,7 +8,6 @@
         Spice.add({
             id: 'transit_path',
             name: 'PATH',
-            signal: 'high',
             data: api_result.routes,
             meta: {
                 primaryText: api_result.origin + " to " + api_result.destination,
@@ -46,7 +45,7 @@
             s = '0' + s;
         }
         return s;
-    }   
+    }
 
     function format_time(t) {
         var hour = parseInt(t.split(':')[0]),

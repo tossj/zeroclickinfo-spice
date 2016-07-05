@@ -8,7 +8,6 @@
             id: 'lastfm_artist',
             name: 'Music',
             data: api_result.artist,
-            signal: 'high',
             meta: {
                 sourceName: 'Last.fm',
                 sourceUrl: api_result.artist.url,

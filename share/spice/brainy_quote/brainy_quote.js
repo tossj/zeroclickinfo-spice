@@ -13,7 +13,6 @@
                 sourceName: 'Brainy Quote',
                 sourceUrl: api_result.source_url
             },
-            signal: 'high',
             normalize: function(item) {
                 return {
                     person: item.header1.replace(/ quote$/, ""),

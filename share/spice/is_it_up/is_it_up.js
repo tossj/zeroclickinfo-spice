@@ -1,4 +1,4 @@
-(function(env) {    
+(function(env) {
     env.ddg_spice_is_it_up = function(api_result) {
         "use strict";
 
@@ -10,7 +10,6 @@
             id: 'is_it_up',
             name: 'Answer',
             data: api_result,
-            signal: 'high',
             meta: {
                 sourceUrl: 'http://isitup.org/' + api_result['domain'],
                 sourceName: 'Is it up?'
@@ -24,12 +23,12 @@
             }
         });
     }
-    
+
     Handlebars.registerHelper ('if_value', function(a, b, options) {
         if (a === b) {
             return options.fn(this);
         } else {
             return options.inverse(this);
-        }   
+        }
     });
 }(this));

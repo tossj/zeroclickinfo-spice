@@ -9,13 +9,13 @@
     // Fetch our json and pass to getScript
     env.ddg_spice_astrobin_apod = function(api_result) {
         if(!api_result) {
-            return Spice.failed('apod');  
+            return Spice.failed('apod');
         }
         var getimageid = api_result.objects[0].image.split("/");
         $.getScript("/js/spice/astrobin/fetch_id/" + getimageid[4]);
     };
 
-    
+
     env.ddg_spice_astrobin_fetch_id = function(api_result) {
         if (!api_result) {
             return Spice.failed('apod');
@@ -25,7 +25,6 @@
             id: "apod",
             name: "Astronomy",
             data: api_result,
-            signal: 'high',
             meta: {
                 sourceName: "AstroBin",
                 sourceUrl: "http://www.astrobin.com/" + api_result.id

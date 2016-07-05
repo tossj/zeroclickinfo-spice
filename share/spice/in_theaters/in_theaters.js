@@ -1,6 +1,6 @@
 (function(env) {
     "use strict";
-    
+
     function get_image(critics_rating) {
         if(!critics_rating) {
             return;
@@ -10,7 +10,7 @@
         critics_rating = critics_rating.toLowerCase().replace(/ /, '-');
         return DDG.get_asset_path('in_theaters', critics_rating + ((DDG.is3x || DDG.is2x) ? '.retina.png' : '.png'));
     }
-    
+
     env.ddg_spice_in_theaters = function(api_result) {
         if(!api_result || api_result.error) {
             return Spice.failed('in_theaters');
@@ -38,7 +38,6 @@
             id: 'in_theaters',
             name: 'Movies',
             data: api_result.movies,
-            signal: 'high',
             meta: {
                 sourceName: 'Rotten Tomatoes',
                 sourceUrl: 'http://www.rottentomatoes.com/movie/in-theaters/',
@@ -54,14 +53,14 @@
                 }
 
                 var position;
-                
+
                 // We add these so that we can position the Rotten Tomatoes images.
                 if(item.ratings.critics_rating === "Fresh" || item.ratings.critics_rating === "Certified Fresh") {
                     position = "-256px -144px";
                 } else if(item.ratings.critics_rating === "Rotten") {
                     position = "-272px -144px";
                 }
-                
+
                 if(item.alternate_ids && item.alternate_ids.imdb) {
                     return {
                         rating: item.ratings.critics_score >= 0 ? item.ratings.critics_score / 20 : 0,
@@ -115,7 +114,7 @@
             }
         });
     }
-    
+
     // Convert minutes to hr. min. format.
     // e.g. {{time 90}} will return 1 hr. 30 min.
     Handlebars.registerHelper("InTheaters_time", function(runtime) {

@@ -517,7 +517,6 @@ License: CC BY-NC 3.0 http://creativecommons.org/licenses/by-nc/3.0/
         Spice.add({
             id: 'timer',
             name: 'Timer',
-            signal: 'high',
             data: {
                 isMobile: DDG.device.isMobile
             },

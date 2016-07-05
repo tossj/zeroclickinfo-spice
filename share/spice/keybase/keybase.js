@@ -48,20 +48,20 @@
                 userAccounts.push({
                         text: keybase_key_fingerprint(item.public_keys.primary.key_fingerprint),
                         href: 'https://keybase.io/' + item.basics.username + '/key.asc'});
-                
+
                 var filteredSummary = $.grep( item.proofs_summary.all , function( account, i ) {
-                  return account.presentation_group === 'github' || 
-                         account.presentation_group === 'reddit' || 
+                  return account.presentation_group === 'github' ||
+                         account.presentation_group === 'reddit' ||
                          account.presentation_group === 'twitter';
                 });
-   
+
                 $.each(filteredSummary, function(index, account){
                     userAccounts.push({
                         text: DDG.capitalize(account.presentation_group),
                         href: account.service_url
                     });
                 });
-                
+
                 return {
                     image: item.pictures.primary.url,
                     title: item.profile.full_name,
@@ -81,7 +81,6 @@
                     iconImage: 'large'
                 }
             },
-            signal: 'high'
         });
     };
 }(this));

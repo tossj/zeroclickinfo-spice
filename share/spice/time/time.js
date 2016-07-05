@@ -69,10 +69,10 @@
         if(!chosen) {
             return Spice.failed('time');
         }
-        
+
         DDG.require('moment.js', function(){
             var dateObj = moment.parseZone(chosen.time.iso, moment.ISO_8601);
-            
+
             // holds display location
             var placeName = chosen.geo.state ? (chosen.geo.name + ", " + chosen.geo.state) : chosen.geo.name;
             if (chosen.overridePlaceName) {
@@ -95,7 +95,6 @@
                 id: "time",
                 name: "Time",
                 data: dateTime,
-                signal: 'high',
                 meta: {
                     sourceName: "timeanddate.com",
                     sourceUrl: 'http://www.timeanddate.com/worldclock/city.html?n=' + chosen.id

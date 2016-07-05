@@ -29,7 +29,6 @@
             id: 'twitter',
             data: api_result,
             name: 'Social',
-            signal: 'high',
             meta: {
                 sourceUrl: "https://twitter.com/" + api_result.user,
                 sourceName: "Twitter",

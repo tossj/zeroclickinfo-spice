@@ -11,7 +11,6 @@
             id: 'alternative_to',
             name: 'Software',
             data: api_result.Items,
-            signal: 'high',
             meta: {
                 searchTerm: api_result.Name,
                 itemType: 'Alternatives',
@@ -44,4 +43,4 @@
         return (platforms.length > 1) ? "Multiplatform" : platforms[0];
     });
 
-}(this)); 
+}(this));

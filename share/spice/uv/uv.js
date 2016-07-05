@@ -55,7 +55,6 @@
                 riskTitle: riskTitle,
                 protection: protection
             },
-            signal: 'high',
             meta: {
                 sourceName: "EPA",
                 sourceUrl: 'http://www.epa.gov/enviro/facts/uv/uv_descriptions.html'

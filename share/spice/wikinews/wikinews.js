@@ -10,7 +10,6 @@
             Spice.add({
                 id: "wikinews",
                 name: "Wikinews",
-                signal: "high",
                 data: api_result.query.categorymembers,
                 meta: {
                     sourceName: 'Wikinews',

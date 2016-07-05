@@ -21,7 +21,6 @@
             id: 'transit_septa',
             name: 'SEPTA',
             data: api_result,
-            signal: 'high',
             meta: {
                 primaryText: from + " to " + to,
                 sourceName: 'SEPTA',
