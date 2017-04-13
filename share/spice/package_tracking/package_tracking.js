@@ -25,7 +25,7 @@
                 id: "package_tracking",
                 name: "Answer",
                 meta: {
-                    sourceName: "PackageTrackr",
+                    sourceName: "Packagetrackr",
                     sourceUrl: details_url
                 },
                 data: api_result,
