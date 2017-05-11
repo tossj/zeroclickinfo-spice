@@ -105,6 +105,29 @@ ddg_spice_test(
         caller => 'DDG::Spice::PackageTracking'
     ),
 
+    # Prompts for input
+    'fedex package tracking' => test_spice(
+        '/js/spice/package_tracking/',
+        call_type => "self",
+        caller => "DDG::Spice::PackageTracking"
+    ),
+    'fedex package tracker' => test_spice(
+        '/js/spice/package_tracking/',
+        call_type => "self",
+        caller => "DDG::Spice::PackageTracking"
+    ),
+    'package tracking' => test_spice(
+        '/js/spice/package_tracking/',
+        call_type => "self",
+        caller => "DDG::Spice::PackageTracking"
+    ),
+    'package tracking online' => test_spice(
+        '/js/spice/package_tracking/',
+        call_type => "self",
+        caller => "DDG::Spice::PackageTracking"
+    ),
+
+
     # Bad Queries
     70000000000000000001 => undef,
     'what is 70000000000000000000' => undef,
@@ -130,12 +153,6 @@ ddg_spice_test(
 
     # Too short
     'usps 12345' => undef,
-
-    # TODO: Display input form prompting for tracking number?
-    'fedex package tracking' => undef,
-    'fedex package tracker' => undef,
-    'package tracking' => undef,
-    'package tracking online' => undef,
 
     'fedex' => undef,
     'fedex website' => undef
