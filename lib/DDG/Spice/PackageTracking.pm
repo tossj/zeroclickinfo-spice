@@ -13,11 +13,12 @@ spice wrap_jsonp_callback => 1;
 spice to => 'https://api.packagetrackr.com/ddg/v1/track/simple?n=$1&api_key={{ENV{DDG_SPICE_PACKAGETRACKR_API_KEY}}}';
 
 my @carriers = sort { length $b <=> length $a } @{LoadFile(share('carriers.yml'))};
-my $triggers_re = qr/(package|parcel)|track(ing)?( num(ber)?)?|shipping status/i;
 my $carriers_re = join "|", @carriers;
-
 # allow carrier names without spaces (e.g royal mail OR royalmail)
-$carriers_re =~ s/ /\\s*/g;
+$carriers_re =~ s/ /\\s?/g;
+$carriers_re =~ qr/(?:$carriers_re)/;
+
+my $triggers_re = qr/(package|parcel)|track(ing)?( num(ber)?)?|shipping status/i;
 my $strip_re = qr/\b(?:$carriers_re|$triggers_re)\b/i;
 
 ### Regex triggers for queries containing carrier names
@@ -76,12 +77,12 @@ triggers query_nowhitespace => qr/^
 
 handle query => sub {
 
-    # handle generic by showing an input prompt
-    if (m/^($carriers_re) (?:package|track(?:ing|er)|status|\s)+$/ || m/^(?:track (?:a )?$carriers_re)?)?(?:(?:package|tracking|online)\s)+($carriers_re)?/) {
-        return {
-            call => '/',
-            call_type => 'self'
-        };
+    if (/^(?:$carriers_re) (package ?|track(ing|er) ?|status ?)+$/ ||
+        /^(track (a )?((?:$carriers_re) )?)?(package ?|track(er|ing) ?|online ?)+((?:$carriers_re) )?$/) {
+            return {
+                call => '/js/spice/package_tracking/',
+                call_type => 'self'
+            };
     }
 
     # remove trigger words & carrier names

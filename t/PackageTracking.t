@@ -111,7 +111,7 @@ ddg_spice_test(
         call_type => "self",
         caller => "DDG::Spice::PackageTracking"
     ),
-    'fedex package tracker' => test_spice(
+    'track fedex package' => test_spice(
         '/js/spice/package_tracking/',
         call_type => "self",
         caller => "DDG::Spice::PackageTracking"
@@ -122,6 +122,11 @@ ddg_spice_test(
         caller => "DDG::Spice::PackageTracking"
     ),
     'package tracking online' => test_spice(
+        '/js/spice/package_tracking/',
+        call_type => "self",
+        caller => "DDG::Spice::PackageTracking"
+    ),
+    'fedex tracking' => test_spice(
         '/js/spice/package_tracking/',
         call_type => "self",
         caller => "DDG::Spice::PackageTracking"
