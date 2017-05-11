@@ -76,6 +76,14 @@ triggers query_nowhitespace => qr/^
 
 handle query => sub {
 
+    # handle generic by showing an input prompt
+    if (m/^($carriers_re) (?:package|track(?:ing|er)|status|\s)+$/ || m/^(?:track a)?(?:package|tracking|\s)+($carriers_re)?/) {
+        return {
+            call => '/',
+            call_type => 'self'
+        };
+    }
+
     # remove trigger words & carrier names
     s/\b$strip_re\b//ixg;
     trim($_);

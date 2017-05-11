@@ -1,9 +1,33 @@
 (function (env) {
     "use strict";
+
     env.ddg_spice_package_tracking = function(api_result){
 
-        if (!api_result || !api_result.c || api_result.error) {
-            return Spice.failed('package_tracking');
+        console.log(api_result);
+
+        // Handle generic case, show prompt
+        if (api_result.showPrompt){
+
+            Spice.add({
+                id: "package_tracking",
+                name: "Answer",
+                data: {
+                    title: "Track a package",
+                    buttonText: carrier ? "Track via " + carrier : "Find carrier"
+                },
+                templates: {
+                    group: 'text',
+                    options: {
+                        content: Spice.package_tracking.content
+                    }
+                }
+            });
+        }
+        else if (api_result.ignore) {
+            return;
+        }
+        else if (!api_result || !api_result.c || api_result.error) {
+            // return Spice.failed('package_tracking');
         }
 
         var logo = api_result.c;
@@ -191,4 +215,13 @@
         "yodel": { name: "Yodel Domestic" },
         "yrc": { name: "YRC Freight" }
     };
+
+    var query = DDG.get_query().toLowerCase();
+    var carriers_re = new RegExp( Object.keys(carriers).join('|') );
+
+    if (true || /^(carriers_re) (?:package|track(?:ing|er)|status|\s)+$/.test(query) ||
+        /^(?:track a)?(?:package|tracking|\s)+(carriers_re)?/.test(query)) {
+            console.log("TRIGGERING SELF");
+            DDG.ready(function() { console.log("IM READY"); ddg_spice_package_tracking({ showPrompt: true }); });
+    }
 }(this));
