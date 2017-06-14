@@ -1,4 +1,10 @@
 {{#if latest_release}}
-<div>{{latest_release}} Latest Release</div>
+    <div>Latest Release - {{latest_release}}</div>
 {{/if}}
-<div class="tx-clr--grey-light"> Rank {{rank}} </div>
+
+<div id="meta-info">
+    {{#if stars}}
+        <i class="star starIcon"></i>
+        <span>Stars - {{stars}}</span>
+    {{/if}}
+</div>

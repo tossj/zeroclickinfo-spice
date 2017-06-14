@@ -1,14 +1,18 @@
-go
-go get
-wordpress
-wp
-atom
-elm
-eml-package
-scala
-dart
-swiftpm
-groovy
-emacs
-pypi
-bower
+alcatraz,
+atom,
+bower,bower install,
+cran,r,rlang,r lang,
+dart,dartlang, dartlang
+dub,
+elm,elm-lang,elm lang,
+emacs,
+go,go get,golang, go lang,
+groovy,
+haxe,
+inqlude,
+julia,julia install,julia lang,
+meteor,
+nimble,nim,nim install,nimble install,
+nuget,c#,
+shards,shards install,crystal,crystal lang,crystal install,
+wordpress,wp,
