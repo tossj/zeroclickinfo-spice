@@ -12,7 +12,7 @@ ddg_spice_test(
         caller => 'DDG::Spice::Libraries'
     ),
     'wp jetpack' => test_spice(
-        '/js/spice/libraries/wp/jetpack',
+        '/js/spice/libraries/wordpress/jetpack',
         caller => 'DDG::Spice::Libraries',
     ),
     'elm elm-html' => test_spice(
