@@ -30,6 +30,7 @@
         haxe: "$ haxelib install",
         go: "$ go get",
         julia: "Pkg.add(\"",
+        meteor: "meteor npm install --save",
         nimble: "$ nimble install",
         nuget: "PM> Install-Package",
         shards: "common_mark:\n\t\tgithub: ysbaddaden/crystal-cmark"
